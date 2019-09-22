@@ -1,6 +1,25 @@
+# editors and ide's
+.vscode
 .idea/
 *.iml
 *.iws
 *.ipr
 *~
+
+# Ignore the build and lib dirs
+build
+lib/*
+
+# Ignore any executables
+bin/*
+
+# Ignore Mac specific files
 .DS_Store
+
+# Ignore Swap files
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-rt-v][a-z]
+[._]ss[a-gi-z]
+[._]sw[a-p]
+
