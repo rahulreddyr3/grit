@@ -1,20 +1,31 @@
+#!/bin/bash
 set -e
-if [ -d ./.grit ];
+
+if [ -d ./.grit ]
 then
-rm -rf .grit
+        rm -rf ./.grit
+        echo "removed .grit"
 else
-echo "grit folder is not present."
+        echo "grit directory was already removed."
 fi
-if [ -f ./.git/hooks/pre-commit ];
+
+if [ -f ./.git/hooks/grit-pre-commit-hook ]
 then
-rm ./.git/hooks/pre-commit
+        cat > ./.git/hooks/grit-pre-commit-hook << 'EOF'
+## Grit precommit hook is disabled
+#!/bin/bash
+exit 0
+EOF
+        echo "disabled pre-commit hook"
 else
-echo "pre-commit does not exist."
+        echo "grit-pre-commit-hook file does not exist."
 fi
-if [ -f ./grit.sh ];
+
+if [ -f ./grit.sh ]
 then
-rm ./grit.sh
+        rm ./grit.sh
+        echo "removed grit.sh"
 else
-echo "grit.sh does not exist."
+        echo "grit.sh file has been already deleted."
 fi
 
