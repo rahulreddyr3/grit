@@ -23,8 +23,17 @@ EOGS
 
 cd .git/hooks
 
+if [ ! -f grit-pre-commit-hook ]
+then
+  cat >> pre-commit << 'EOPCH'
+## Addes grit as precommit hook
+bash ./.git/hooks/grit-pre-commit-hook
+EOPCH
+  chmod +x pre-commit
+fi
+
 touch grit-pre-commit-hook
-cat >> grit-pre-commit-hook << 'EOGPCH'
+cat > grit-pre-commit-hook << 'EOGPCH'
 ## The below part is used by grit to run the grit script before each commit
 #!/bin/bash
 echo $pwd
@@ -53,15 +62,6 @@ fi
 EOGPCH
 
 chmod +x grit-pre-commit-hook
-
-cat >> pre-commit << 'EOPCH'
-
-## Addes grit as precommit hook
-bash ./.git/hooks/grit-pre-commit-hook
-
-EOPCH
-
-chmod +x pre-commit
 
 echo "Congrats, your project is setup with grit."
 echo "Specify what is a green commit for your project in grit.sh file."
