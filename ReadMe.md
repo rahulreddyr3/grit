@@ -15,17 +15,22 @@ brew install grit
 
 ## How to use
 
-To initialise grit run the following command from inside the directory
+To initialise grit in the project, run the following command from in project the directory
 
 ```bash
-grit_init
+grit init
 ```
 
 * Note: This command initialises git and creates .gitignore in the directory if not present.
-
 Once the directory is initialised with grit successfully, you can see grit.sh file in it.
 Keep all commands you want run before commits in this file.
 If this scritp exists with a non zero value the staged changes are considered red and thus won't be commited.
+
+To remove grit from the project, run the following command from in project directory
+
+```bash
+grit remove
+```
 
 ## Contributors
 
