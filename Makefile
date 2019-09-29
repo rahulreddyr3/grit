@@ -3,6 +3,7 @@
 CC := g++ # This is the main compiler
 SRCDIR := src
 BUILDDIR := build
+BINDIR := bin
 TARGET := bin/grit
  
 SRCEXT := cpp
@@ -15,6 +16,7 @@ PREFIX := /usr/local
 DESTDIR :=
 $(TARGET): $(OBJECTS)
 	@echo " Linking..."
+	@mkdir -p $(BINDIR)
 	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
