@@ -12,7 +12,7 @@ CFLAGS := -g # -Wall
 LIB :=
 INC :=
 PREFIX := /usr/local
-DESTDIR := /Users/rahulreddy/Documents/Personal/My_learning_projects/Projects/project_grit
+DESTDIR :=
 $(TARGET): $(OBJECTS)
 	@echo " Linking..."
 	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
